@@ -53,4 +53,17 @@ if st.button('Height'):
 # Text area
 txt = st.text_area('Describe','This should be a long text describing something')
 
-
+#Layout and image
+st.header('Intro to layout')
+# function sidebar is like app, but allow user input things in sidebar, and return result in main screen.
+st.sidebar.header('Try sidebar')
+sidebar_text = st.sidebar.text_input('Input your comment')
+if st.sidebar.button('test with your comment'):
+    # create 2 columns contain original text & new:
+    col1, col2 = st.columns(2)
+    # input expander so the information inside only show if user click expander
+    col_ex = col1.expander('Expand information')
+    with col_ex:
+        col_ex.write(sidebar_text)
+    col2.header('New text')
+    col2.write(sidebar_text + ' add tail')
